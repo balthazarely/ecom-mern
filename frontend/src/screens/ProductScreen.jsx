@@ -1,11 +1,20 @@
-import React, { useEffect } from "react";
-import products from "../products";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PageWrapper } from "../components";
+import axios from "axios";
 
 function ProductScreen() {
+  const [product, setProduct] = useState([]);
   const { id: productId } = useParams();
-  const product = products.find((product) => product._id === productId);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <PageWrapper className="">
       <div className="grid  grid-cols-1 sm:grid-cols-2">
