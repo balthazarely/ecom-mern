@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "iPhone 12 Pro",
     image: "/images/iphone12pro.webp",
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 23,
   },
   {
-    _id: "2",
     name: "Samsung Galaxy S21",
     image: "/images/galaxys21.webp",
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 18,
   },
   {
-    _id: "3",
     name: "Sony PlayStation 5",
     image: "/images/ps5.jpeg",
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 32,
   },
   {
-    _id: "4",
     name: "LG OLED TV",
     image: "/images/lg-oled.webp",
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 14,
   },
   {
-    _id: "5",
     name: "HP Spectre x360",
     image: "/images/hp-spectre.webp",
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 9,
   },
   {
-    _id: "6",
     name: "Canon EOS R5",
     image: "/images/canon-eos.jpeg",
     description:
