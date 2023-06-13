@@ -1,29 +1,21 @@
 import React from "react";
 import { PageWrapper } from "./PageWrapper";
+import { useSelector } from "react-redux";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export function Navbar() {
+  const { cartItems } = useSelector((state) => state.cart);
   return (
     <div className="navbar bg-base-200">
       <PageWrapper classname="w-full">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
         </div>
-        <div className="flex-none">
-          <button className="btn btn-square btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block w-5 h-5 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-              ></path>
-            </svg>
-          </button>
+        <div className="flex gap-2">
+          <div className="text-sm font-bold text-white rounded-full bg-primary w-6 h-6 flex justify-center items-center">
+            {cartItems?.reduce((acc, c) => acc + c.qty, 0)}
+          </div>
+          <AiOutlineShoppingCart className="text-2xl" />
         </div>
       </PageWrapper>
     </div>

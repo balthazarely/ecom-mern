@@ -1,26 +1,20 @@
 import React from "react";
 import { PageWrapper, Product } from "../components";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useGetProductsQuery } from "../slices/productsApiSlice";
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get("/api/products");
-      setProducts(data);
-    };
-    fetchProducts();
-  }, []);
-
+  const { data: products, isLoading, error } = useGetProductsQuery();
   return (
     <PageWrapper>
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-3 sm:grid-cols-2">
-        {products.map((item) => (
-          <Product key={item._id} product={item} />
-        ))}
-      </div>
+      {isLoading ? (
+        "loading"
+      ) : (
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-3 sm:grid-cols-2">
+          {products?.map((item) => (
+            <Product key={item._id} product={item} />
+          ))}
+        </div>
+      )}
     </PageWrapper>
   );
 };
